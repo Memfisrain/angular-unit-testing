@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://D:/projects/kronos/eou/staging_files/web_server/applications/navigator/html5/setup-apps/common/common.module.js" charset="UTF-8" />
+    <file url="file://D:/projects/kronos/eou/staging_files/web_server/applications/navigator/html5/setup-apps/common/components/amount/amount.service_test.js" charset="UTF-8" />
+    <file url="file://D:/projects/kronos/eou/staging_files/web_server/applications/navigator/html5/setup-apps/common/components/grid/grid.module.js" charset="UTF-8" />
+    <file url="file://D:/projects/kronos/eou/staging_files/web_server/applications/navigator/html5/setup-apps/common/components/grid/validators/grid.validators_test.js" charset="UTF-8" />
+    <file url="file://D:/projects/kronos/eou/staging_files/web_server/applications/navigator/html5/setup-apps/common/controllers/base-preview.controller_test.js" charset="UTF-8" />
+    <file url="file://D:/projects/kronos/eou/staging_files/web_server/applications/navigator/html5/setup-apps/gulp/tasks/tests.js" charset="UTF-8" />
+    <file url="file://D:/projects/kronos/eou/staging_files/web_server/applications/navigator/html5/setup-apps/karma.conf.js" charset="UTF-8" />
+    <file url="file://D:/projects/kronos/eou/staging_files/web_server/applications/navigator/html5/setup-apps/karma.conf.template.js" charset="UTF-8" />
+  </component>
+</project>
