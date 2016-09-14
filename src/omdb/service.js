@@ -17,11 +17,11 @@ angular.module('omdb', [])
 
 		service.search = function(query) {
 			return httpPromise(baseUrl + 's=' + encodeURIComponent(query));
-		}
+		};
 
 		service.find = function(id) {
 			return httpPromise(baseUrl + 'i=' + id);
-		}
+		};
 
 		return service;
 	});

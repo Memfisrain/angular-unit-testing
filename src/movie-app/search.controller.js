@@ -1,4 +1,4 @@
-angular.module("movieApp", [])
+angular.module("movieApp")
   .controller("searchController", ['$scope', '$location', function ($scope, $location) {
     this.query = "";
 
