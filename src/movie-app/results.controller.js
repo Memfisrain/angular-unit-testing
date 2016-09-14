@@ -5,8 +5,8 @@ angular.module("movieApp")
 
     omdbApi.search(query)
       .then(function (data) {
-        console.log("inside then");
-        $scope.results = data;
+        console.log(data);
+        $scope.results = data.Search;
       })
       .catch(function(err) {
         $scope.errorMessage = err.message;
