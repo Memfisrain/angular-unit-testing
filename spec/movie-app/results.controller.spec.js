@@ -1,24 +1,26 @@
 describe("Results controller", function () {
-  var results = [
-    {
-      "Title": "Star Wars",
-      "Year": "1983",
-      "Rated": "N/A",
-      "Released": "01 May 1983"
-    },
-    {
-      "Title": "Red Wiles",
-      "Year": "1923",
-      "Rated": "N/A",
-      "Released": "01 May 1923"
-    },
-    {
-      "Title": "Heat",
-      "Year": "1995",
-      "Rated": "N/A",
-      "Released": "01 May 1995"
-    }
-  ];
+  var results = {
+    Search: [
+      {
+        "Title": "Star Wars",
+        "Year": "1983",
+        "Rated": "N/A",
+        "Released": "01 May 1983"
+      },
+      {
+        "Title": "Red Wiles",
+        "Year": "1923",
+        "Rated": "N/A",
+        "Released": "01 May 1923"
+      },
+      {
+        "Title": "Heat",
+        "Year": "1995",
+        "Rated": "N/A",
+        "Released": "01 May 1995"
+      }
+    ]
+  };
 
   var $controller,
     $scope,
@@ -54,9 +56,11 @@ describe("Results controller", function () {
 
     $rootScope.$digest(); // trigger angular event cycle which pick up our resolved promise
 
-    expect($scope.results[0].Title).toBe(results[0].Title);
-    expect($scope.results[1].Title).toBe(results[1].Title);
-    expect($scope.results[2].Title).toBe(results[2].Title);
+    console.log($scope.results[0]);
+
+    expect($scope.results[0].Title).toBe(results.Search[0].Title);
+    expect($scope.results[1].Title).toBe(results.Search[1].Title);
+    expect($scope.results[2].Title).toBe(results.Search[2].Title);
 
     expect(omdbApi.search).toHaveBeenCalledWith(film);
   });

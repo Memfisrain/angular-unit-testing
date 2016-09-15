@@ -19,7 +19,7 @@
       <div ng-controller="searchController as searchCtrl">
         <form class="form-inline-lg" ng-submit="searchCtrl.search()">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Film title..." ng-model="searchCtrl.query">
+            <input type="text" class="form-control" placeholder="Film title..." ng-model="searchCtrl.query" ng-keyup="searchCtrl.keyup()" ng-keydown="searchCtrl.keydown()">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button" ng-click="searchCtrl.search()">Go!</button>
             </span>
