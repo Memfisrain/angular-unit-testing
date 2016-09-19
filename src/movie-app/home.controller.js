@@ -1,5 +1,5 @@
 angular.module("movieApp")
-	.controller('homeController', ['$scope', '$interval', function($scope, $interval) {
+	.controller('homeController', ['$scope', '$interval', 'omdbApi', 'PopularMovies', function($scope, $interval, omdbApi, PopularMovies) {
 		var results = [
 			{
 				Title: "Star Wars: Episode IV - A New Hope",
@@ -11,10 +11,26 @@ angular.module("movieApp")
 			}
 		];
 
-		$scope.result = results[0];
-		var i = 1;
+		console.dir(PopularMovies);
 
-		var interval = $interval(function() {
-			$scope.result = results[i++ % results.length];
-		}, 5000);
+		//$scope.result = results[0];
+
+		function findMovie(id) {
+			omdbApi.find(id)
+				.then(function(movie) {
+					$scope.result = movie;
+				});
+		}
+
+		/*PopularMovies
+			.get()
+			.then(function(results) {*/
+				findMovie(results[0].imdbID);
+
+				var i = 1;
+
+				$interval(function() {
+					findMovie(results[i++ % results.length].imdbID);
+				}, 5000);
+			/*});*/
 	}])

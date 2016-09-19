@@ -6,9 +6,13 @@ angular.module('movieCore', ['ngResource'])
 				method: 'PUT',
 				headers: { 'authToken': token }
 			},
-			get: {
-				method: 'GET',
-				headers: { 'authToken': token }
+			get: function() {
+				return {
+					method: 'GET',
+					headers: { 'authToken': token },
+					then: function() {}
+				}
+				
 			},
 			query: {
 				method: 'GET',
