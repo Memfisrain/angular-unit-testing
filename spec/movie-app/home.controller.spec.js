@@ -21,10 +21,8 @@ describe('Home controller', function() {
 	beforeEach(module('movieApp'));
 
 	beforeEach(inject(function(_$q_, _PopularMovies_) {
-		spyOn(_PopularMovies_, 'get').and.callFake(function() {
-			var defered = _$q_.defer();
-			defered.resolve(resultsIds);
-			return defered.promise;
+		spyOn(_PopularMovies_, 'get').and.callFake(function(cb) {
+			cb(resultsIds)
 		});
 	}));
 

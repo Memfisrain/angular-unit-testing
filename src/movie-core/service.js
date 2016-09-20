@@ -10,10 +10,6 @@ angular.module('movieCore', ['ngResource'])
 					method: 'GET',
 					headers: { 'authToken': token }
 			},
-			query: {
-				method: 'GET',
-				headers: { 'authToken': token }
-			},
 			save: {
 				method: 'POST',
 				headers: { 'authToken': token }
