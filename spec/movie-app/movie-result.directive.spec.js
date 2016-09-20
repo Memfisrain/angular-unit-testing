@@ -1,4 +1,4 @@
-fdescribe('movie result directive', function() {
+xdescribe('movie result directive', function() {
 	var result = {
 		Poster: "http://localhost/image.jpg",
 		Title: "Star Wars: Episode - a New hope",

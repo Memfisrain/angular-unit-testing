@@ -1,4 +1,4 @@
-fdescribe('from-now filter', function () {
+describe('from-now filter', function () {
 	var fromNow;
 
 	beforeEach(module('movieApp'));

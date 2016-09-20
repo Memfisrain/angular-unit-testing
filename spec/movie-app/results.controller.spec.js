@@ -27,17 +27,23 @@ describe("Results controller", function () {
     $q,
     $rootScope,
     $location,
+    $exceptionHandler,
     omdbApi;
 
   beforeEach(module("omdb"));
   beforeEach(module("movieApp"));
 
-  beforeEach(inject(function(_$controller_, _$q_, _$rootScope_, _$location_, _omdbApi_) {
+  beforeEach(module(function($exceptionHandlerProvider) {
+    $exceptionHandlerProvider.mode('log');
+  }))
+
+  beforeEach(inject(function(_$controller_, _$q_, _$rootScope_, _$location_, _$exceptionHandler_, _omdbApi_) {
     $controller = _$controller_;
     $scope = {};
     $q = _$q_;
     $rootScope = _$rootScope_;
     $location = _$location_;
+    $exceptionHandler = _$exceptionHandler_;
     omdbApi = _omdbApi_;
   }));
 
@@ -71,15 +77,18 @@ describe("Results controller", function () {
 
     spyOn(omdbApi, "search").and.callFake(function() {
       var deferred = $q.defer();
-      deferred.reject(new Error(message));
+      deferred.reject(message);
       return deferred.promise;
     });
 
     $location.search("q", film);
-
+    
     $controller("resultsController", {$scope: $scope});
-
     $rootScope.$digest();
+
+    console.log($exceptionHandler.errors)
+    
+    expect($exceptionHandler.errors[0]).toBe(message);
 
     expect($scope.errorMessage).toBe(message);
     expect($scope.results).toEqual([]);

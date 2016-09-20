@@ -1,5 +1,5 @@
 angular.module("movieApp")
-  .controller("resultsController", function($scope, $location, omdbApi) {
+  .controller("resultsController", function($scope, $location, $exceptionHandler, omdbApi) {
     var query = $location.search().q;
     $scope.results = [];
 
@@ -9,6 +9,7 @@ angular.module("movieApp")
         $scope.results = data.Search;
       })
       .catch(function(err) {
-        $scope.errorMessage = err.message;
+        $scope.errorMessage = err;
+        $exceptionHandler(err);
       })
   });
